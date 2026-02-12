@@ -1,0 +1,38 @@
+<div class="proposal-container">
+  
+  <!-- Vista de la Pregunta -->
+  <ng-container *ngIf="!accepted">
+    <div class="banner">
+      <!-- Puedes reemplazar esto con una imagen si prefieres -->
+      <h1>¿Quieres ser mi novia? 🌹</h1>
+      <p class="subtitle">Prometo hacerte muy feliz</p>
+    </div>
+
+    <div class="actions">
+      <!-- Botón Sí -->
+      <button class="btn btn-yes" (click)="onYesClick()">
+        ¡Sí, acepto! 💖
+      </button>
+
+      <!-- Botón No (Escurridizo) -->
+      <button 
+        class="btn btn-no" 
+        (mouseover)="moveNoButton($event)" 
+        (mousemove)="moveNoButton($event)"
+        (click)="onNoClick($event)"
+        [ngStyle]="noBtnStyle">
+        {{ currentNoText }}
+      </button>
+    </div>
+  </ng-container>
+
+  <!-- Vista de Celebración -->
+  <div *ngIf="accepted" class="celebration-container">
+    <img src="https://wallpapers.com/images/hd/cute-tiktok-profile-pictures-hyif1xu3a6ldgmru.jpg" alt="Gatito feliz" class="cat-img">
+    <h1 class="celebration-text">
+      ¡SABÍA QUE DIRÍAS QUE SÍ! <br> 
+      TE AMO ❤️
+    </h1>
+  </div>
+
+</div>
